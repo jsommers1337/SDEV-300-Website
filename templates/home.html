@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <title>{{ title }}</title>
+ <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ </head>
+<body>
+<!--this div container is for centering everything-->
+<div class="container">
+    <h1>Welcome to John Sommers' Site of Cool Stuff</h1>
+    <p>I hope you enjoy this treasure trove of a site.</p>
+        {% with messages = get_flashed_messages() %}
+       {% if messages %}
+          {% for message in messages %}
+             {{ message }}
+          {% endfor %}
+       {% endif %}
+    {% endwith %}
+    <h2>Current Date and Time:</h2>
+    <p>{{ current_time.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    <h3>Cool Links:</h3>
+    <ul>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact Me</a></li>
+        <li><a href="{{ url_for('register') }}">Register Here</a></li>
+        <li><a href="{{ url_for('login') }}">Login Here</a></li>
+        <li><a href="{{ url_for('update') }}">Update Password Here</a></li>
+        <li><a href="https://www.youtube.com/watch?v=_VRIYay73l4" target="_blank">hamster song and dance</a></li>
+        <li><a href="https://www.youtube.com/watch?v=sJ7xRp-pm4M" target="_blank">Garry Doesn't Stop Believing</a></li>
+        <li><a href="https://www.youtube.com/watch?v=WyeFfNH9Upc" target="_blank">Gumi - The Last Confession on Earth (地球最後の告白を)</a></li>
+    </ul>
+    <a href="https://www.youtube.com/watch?v=6U_XREUMOAU">
+        <img src="static/flabbergasted.png" height ="300" title="flabbergasted">
+    </a>
+</div>
+</body>
+</html>
